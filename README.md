@@ -57,14 +57,23 @@ Il sistema è composto da tre servizi principali:
 
 / (root)
 ├── docker-compose.yml    # Orchestrazione dei servizi
+
 ├── .gitignore            # File esclusi da Git
+
 ├── .github/workflows     # Pipeline CI/CD
+
 ├── backend/              # Codice sorgente Server (Node.js)
+
 │   ├── server.js         # Entry point e logica API
+
 │   ├── models/           # Schemi MongoDB
+
 │   └── uploads/          # Cartella persistenza immagini
+
 └── frontend/             # Codice sorgente Client (React)
+
     ├── src/              # Componenti React e stili
+    
     └── public/           # Assets statici
 
 ## Integrazione Continua (CI)
