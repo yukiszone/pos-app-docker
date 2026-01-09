@@ -41,7 +41,7 @@ Il sistema è composto da tre servizi principali:
 
 3. Costruire e avviare i container:
    Eseguire il comando nella root del progetto (dove si trova il file docker-compose.yml):
-      docker-compose up --build
+   - docker-compose up --build
 
    Nota: Al primo avvio potrebbe essere necessario attendere qualche minuto per il download delle immagini e l'installazione delle dipendenze.
 
