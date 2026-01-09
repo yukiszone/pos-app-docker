@@ -36,8 +36,8 @@ Il sistema è composto da tre servizi principali:
 ## Installazione e Avvio
 
 1. Clonare il repository:
-      git clone https://github.com/yukiszone/pos-app-docker.git
-      cd pos-app-docker
+   - git clone https://github.com/yukiszone/pos-app-docker.git
+   - cd pos-app-docker
 
 3. Costruire e avviare i container:
    Eseguire il comando nella root del progetto (dove si trova il file docker-compose.yml):
@@ -51,7 +51,7 @@ Il sistema è composto da tre servizi principali:
 
 5. Arrestare l'applicazione:
    Premere CTRL+C nel terminale oppure eseguire:
-      docker-compose down
+   - docker-compose down
 
 ## Struttura del Progetto
 
