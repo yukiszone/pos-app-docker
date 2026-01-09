@@ -36,22 +36,22 @@ Il sistema è composto da tre servizi principali:
 ## Installazione e Avvio
 
 1. Clonare il repository:
-   git clone https://github.com/yukiszone/pos-app-docker.git
-   cd pos-app-docker
+      git clone https://github.com/yukiszone/pos-app-docker.git
+      cd pos-app-docker
 
-2. Costruire e avviare i container:
+3. Costruire e avviare i container:
    Eseguire il comando nella root del progetto (dove si trova il file docker-compose.yml):
-   docker-compose up --build
+      docker-compose up --build
 
    Nota: Al primo avvio potrebbe essere necessario attendere qualche minuto per il download delle immagini e l'installazione delle dipendenze.
 
-3. Accesso all'applicazione:
+4. Accesso all'applicazione:
    - Frontend (Interfaccia Utente): http://localhost:3000
    - Backend (API Status): http://localhost:5000
 
-4. Arrestare l'applicazione:
+5. Arrestare l'applicazione:
    Premere CTRL+C nel terminale oppure eseguire:
-   docker-compose down
+      docker-compose down
 
 ## Struttura del Progetto
 
@@ -63,17 +63,17 @@ Il sistema è composto da tre servizi principali:
 
 ├── backend/              # Codice sorgente Server (Node.js)
 
-│    ├── server.js         # Entry point e logica API
+│       ├── server.js         # Entry point e logica API
 
-│    ├── models/           # Schemi MongoDB
+│       ├── models/           # Schemi MongoDB
 
-│    └── uploads/          # Cartella persistenza immagini
+│       └── uploads/          # Cartella persistenza immagini
 
 └── frontend/             # Codice sorgente Client (React)
 
-│    ├── src/              # Componenti React e stili
+│       ├── src/              # Componenti React e stili
     
-│    └── public/           # Assets statici
+│       └── public/           # Assets statici
 
 └── .github/workflows     # Pipeline CI/CD
 
