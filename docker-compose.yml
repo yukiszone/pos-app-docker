@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: pos_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: pos_backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads  # <--- MAPPA LA CARTELLA LOCALE AL CONTAINER
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/pos_db
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: pos_frontend
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
