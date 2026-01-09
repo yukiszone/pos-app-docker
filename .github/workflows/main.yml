@@ -20,21 +20,21 @@ jobs:
       uses: actions/checkout@v3
 
     # 2. Crea la cartella uploads (che è nel .gitignore e quindi manca)
-    # Senza questa, docker-compose si arrabbia perché non trova il volume
+    # Senza questa, docker compose si arrabbia perché non trova il volume
     - name: Crea cartella uploads mancante
       run: mkdir -p uploads
 
     # 3. Prova a costruire i container
     # Se c'è un errore nel Dockerfile o nel codice, questo passaggio fallirà
     - name: Test Build Docker
-      run: docker-compose build
+      run: docker compose build
 
     # 4. (Opzionale) Prova ad accendere tutto per 10 secondi
     # Serve a vedere se i container partono o crashano subito
     - name: Test Avvio Servizi
       run: |
-        docker-compose up -d
+        docker compose up -d
         sleep 10
-        docker-compose ps
-        docker-compose logs backend
-        docker-compose down
+        docker compose ps
+        docker compose logs backend
+        docker compose down
