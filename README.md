@@ -56,25 +56,26 @@ Il sistema è composto da tre servizi principali:
 ## Struttura del Progetto
 
 / (root)
+
 ├── docker-compose.yml    # Orchestrazione dei servizi
 
 ├── .gitignore            # File esclusi da Git
 
-├── .github/workflows     # Pipeline CI/CD
-
 ├── backend/              # Codice sorgente Server (Node.js)
 
-│   ├── server.js         # Entry point e logica API
+│    ├── server.js         # Entry point e logica API
 
-│   ├── models/           # Schemi MongoDB
+│    ├── models/           # Schemi MongoDB
 
-│   └── uploads/          # Cartella persistenza immagini
+│    └── uploads/          # Cartella persistenza immagini
 
 └── frontend/             # Codice sorgente Client (React)
 
-    ├── src/              # Componenti React e stili
+│    ├── src/              # Componenti React e stili
     
-    └── public/           # Assets statici
+│    └── public/           # Assets statici
+
+└── .github/workflows     # Pipeline CI/CD
 
 ## Integrazione Continua (CI)
 Il repository include una configurazione per GitHub Actions (.github/workflows/main.yml).
