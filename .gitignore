@@ -1,28 +1,21 @@
-# Dipendenze
 node_modules
 .pnp
 .pnp.js
 
-# Build di produzione
 build
 dist
 
-# Variabili d'ambiente
 .env
 
-# Log di sistema
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Docker e Volumi
 .docker
 mongo-data/
 
-# Immagini caricate (Vogliamo la cartella ma non le immagini di test)
 uploads/*
 !uploads/.gitkeep
 
-# File di sistema operativo
 .DS_Store
 Thumbs.db

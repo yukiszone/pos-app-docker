@@ -1,10 +1,8 @@
-/* Piccole correzioni globali */
 body {
   background-color: #f8f9fa;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Card Prodotto */
 .product-card {
   cursor: pointer;
   transition: all 0.15s ease-in-out;
@@ -23,7 +21,6 @@ body {
   background-color: #f0f0f0;
 }
 
-/* Immagini ottimizzate */
 .small-img {
   height: 90px; /* Ancora più compatte */
   object-fit: cover;
@@ -31,7 +28,6 @@ body {
   border-bottom: 1px solid #eaeaea;
 }
 
-/* Scrollbar personalizzata per Chrome/Safari */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

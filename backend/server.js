@@ -23,11 +23,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// --- MODIFICA QUI: Aggiunto campo 'category' ---
 const ProductSchema = new mongoose.Schema({
   name: String,
   price: Number,
-  category: String, // <--- NUOVO CAMPO
+  category: String,
   imageFilename: String
 });
 const Product = mongoose.model('Product', ProductSchema);
@@ -44,31 +43,30 @@ const connectWithRetry = () => {
   mongoose.connect(process.env.MONGO_URI || 'mongodb://mongo:27017/pos_db')
     .then(() => console.log('MongoDB Connesso!'))
     .catch(err => {
-      console.log('Connessione fallita, riprovo tra 5 secondi...', err);
+      console.log('Connessione fallita, riprovo tra 5 secondi...', err.message);
       setTimeout(connectWithRetry, 5000);
     });
 };
-connectWithRetry();
 
-// --- API ---
+if (process.env.NODE_ENV !== 'test') {
+  connectWithRetry();
+}
 
 app.get('/api/products', async (req, res) => {
   const products = await Product.find();
   res.json(products);
 });
 
-// POST: Aggiunto category
 app.post('/api/products', upload.single('image'), async (req, res) => {
-  const { name, price, category } = req.body; // <--- PRENDIAMO CATEGORIA
+  const { name, price, category } = req.body;
   const imageFilename = req.file ? req.file.filename : req.body.imageFilename;
   const newProduct = new Product({ name, price, category, imageFilename });
   await newProduct.save();
   res.json(newProduct);
 });
 
-// PUT: Aggiunto category
 app.put('/api/products/:id', upload.single('image'), async (req, res) => {
-  const { name, price, category } = req.body; // <--- PRENDIAMO CATEGORIA
+  const { name, price, category } = req.body;
   let updateData = { name, price, category };
   if (req.file) {
     updateData.imageFilename = req.file.filename;
@@ -116,4 +114,8 @@ app.get('/', (req, res) => {
   res.send('API POS ONLINE');
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+if (require.main === module) {
+  app.listen(5000, () => console.log('Server running on port 5000'));
+}
+
+module.exports = app;

@@ -6,7 +6,6 @@ import './App.css';
 
 const IMG_BASE_URL = "http://localhost:5000/uploads/";
 
-// --- 1. POS PAGE (PRINCIPALE) ---
 const PosPage = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -57,11 +56,8 @@ const PosPage = () => {
 
   const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
-  // LOGICA FILTRO CATEGORIE
-  // 1. Estrai categorie uniche dai prodotti (ignorando quelle vuote)
   const categories = ['TUTTI', ...new Set(products.map(p => p.category).filter(c => c && c.trim() !== ''))];
   
-  // 2. Filtra i prodotti da mostrare
   const filteredProducts = selectedCategory === 'TUTTI' 
     ? products 
     : products.filter(p => p.category === selectedCategory);
@@ -85,7 +81,6 @@ const PosPage = () => {
              ))}
           </div>
 
-          {/* GRIGLIA PRODOTTI */}
           <div className="p-3 bg-light overflow-auto flex-grow-1">
             <div className="row g-2">
               {filteredProducts.map(p => (
@@ -107,7 +102,6 @@ const PosPage = () => {
           </div>
         </div>
 
-        {/* COLONNA DESTRA: RIEPILOGO */}
         <div className="col-4 bg-light border-start d-flex flex-column h-100 shadow-lg" style={{zIndex: 10}}>
           <div className="p-3 bg-primary text-white shadow-sm flex-shrink-0">
             <h4 className="m-0 fs-5">Riepilogo Ordine</h4>
@@ -149,7 +143,6 @@ const PosPage = () => {
   );
 };
 
-// --- 2. GESTIONE PRODOTTI ---
 const ProductManagementPage = () => {
   const [products, setProducts] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -268,7 +261,6 @@ const ProductManagementPage = () => {
   );
 };
 
-// --- 3. REPORT ---
 const ReportPage = () => {
   const [reportData, setReportData] = useState([]);
 
