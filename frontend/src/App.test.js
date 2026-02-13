@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import App from './App';
 
-// Disabilitiamo temporaneamente i log degli errori di Axios in console
-// visto che nei test il server backend non è acceso.
 beforeAll(() => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 });
