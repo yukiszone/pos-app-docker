@@ -9,7 +9,7 @@ const IMG_BASE_URL = "http://localhost:5000/uploads/";
 const PosPage = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('TUTTI'); // Stato per il filtro
+  const [selectedCategory, setSelectedCategory] = useState('TUTTI');
 
   useEffect(() => {
     fetchProducts();
