@@ -15,7 +15,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./uploads:/app/uploads  # <--- MAPPA LA CARTELLA LOCALE AL CONTAINER
+      - ./uploads:/app/uploads
     environment:
       - MONGO_URI=mongodb://mongo:27017/pos_db
     depends_on:
